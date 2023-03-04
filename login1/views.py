@@ -28,6 +28,7 @@ def Login(request):
     else:
         return render(request, "login.html")
 
+# login reqired
 @login_required
 def register(request):
     password = 'PASSWORD_HERE'
@@ -44,7 +45,7 @@ def register(request):
 def admincool(request):
     return render(request, 'admin.html')
 
-
+# login reqired
 @login_required
 def deconnection(request):
     logout(request)
