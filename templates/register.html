@@ -1,0 +1,67 @@
+{% load django_bootstrap5 %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    {% bootstrap_messages %}
+</head>
+<body>
+
+<div class="container">
+    <div class="row my-5">
+        <div class="col-md-12">
+            <form method="post" class="form" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                {% for field in form %}
+                    {% bootstrap_field field %}
+                    {{ field.name.errors }}
+                    {{ field.account.errors }}
+                {% endfor %}
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+{##}
+{#<form method="post" class="form">#}
+{#    {% csrf_token %}#}
+{##}
+{#        <button type="submit" class="form-control">Enregistrer</button>#}
+{##}
+{#    <div class="form-group" >#}
+{#    <label for="{{ form.name.id_for_label }}" class="control-label">Name</label>#}
+{#        {{ form.name }}#}
+{#    </div>#}
+{##}
+{#    <div class="form-group">#}
+{#        <label for="{{ form.email.id_for_label }}" class="control-label">Email</label>#}
+{#        {{ form.email }}#}
+{#    </div>#}
+{#    <div class="form-group">#}
+{#        <label for="{{ form.account.id_for_label }}" class="control-label">Account</label>#}
+{#        {{ form.account }}#}
+{#    </div>#}
+{#    <div class="form-group">#}
+{#        <label for="{{ form.available.id_for_label }}" class="control-label">Available</label>#}
+{#        {{ form.available}}#}
+{#    </div>#}
+{#    <div class="form-group">#}
+{#        <label for="{{ form.password.id_for_label }}" class="control-label">Password</label>#}
+{#        {{ form.password }}#}
+{#    </div>#}
+{#    <button type="submit" class="form-control">Enregistrer</button>#}
+{#</form>#}
+{#</body>#}
+{#</html>#}
